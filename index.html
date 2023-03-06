@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-mono h-full selection:bg-neutral-900 selection:text-slate-50">
-<div class="bg-gradient-to-r from-neutral-900 to-neutral-800 p-24" id="app">
+<div class="bg-gradient-to-r from-neutral-900 to-neutral-800 md:p-24" id="app">
     <nav class="flex flex-col justify-center">
         <img class="min-w-800 mx-auto" src="/img/logo-white.png" />
     </nav>
@@ -17,7 +17,7 @@
             Vi er også en aktiv eier i selskaper.
             Vi ser frem til å høre fra deg.
         </p>
-        <section class="companies w-1/1 font-mono px-12 p-16 flex justify-center flex-col">
+        <section class="companies w-1/1 font-mono md:px-12 p-16 flex justify-center flex-col">
             <h3 class="text-slate-50 text-2xl text-center mb-4">Firmapresentasjon</h3>
             <h3 class="text-slate-50 text-xl text-center mb-4">Morselskap</h3>
             <div class="holding flex justify-center mb-12">
@@ -28,26 +28,31 @@
                 </div>
             </div>
             <hr class="border-slate-50 pb-16">
-            <div class="sub-companies flex justify-center gap-5 mb-6 flex-col md:flex-col lg:flex-row">
-                <div @click="toggleModal(1)" class="sub-company shadow-md rounded-lg flex justify-center items-center flex-col px-4 py-6 text-s bg-white hover:cursor-pointer">
-                    <h3 class="font-bold">Slottsfjell Invest AS</h3>
-                    <h3>Eierandel: 100%</h3>
-                    <h3>Org. nr.: 919 745 606</h3>
+            <div class="sub-companies flex justify-center gap-5 mb-6 flex-col lg:flex-row">
+                <div @click="toggleModal(2)" class="sub-company shadow-md rounded-lg flex justify-center items-center flex-col px-4 py-6 text-s bg-white hover:cursor-pointer">
+                    <h3 class="font-bold">Frier Byggservice AS</h3>
+                    <h3>Eierandel: 90%</h3>
+                    <h3>Org. nr.: 919 910 666</h3>
                 </div>
                 <div @click="toggleModal(3)" class="sub-company shadow-md rounded-lg flex justify-center items-center flex-col px-4 py-6 text-s bg-white hover:cursor-pointer">
                     <h3 class="font-bold">Frier Byggservice AB</h3>
                     <h3>Eierandel: 100%</h3>
                     <h3>Org. nr.: 559294-6338</h3>
                 </div>
-                <div @click="toggleModal(2)" class="sub-company shadow-md rounded-lg flex justify-center items-center flex-col px-4 py-6 text-s bg-white hover:cursor-pointer">
-                    <h3 class="font-bold">Frier Byggservice AS</h3>
-                    <h3>Eierandel: 90%</h3>
-                    <h3>Org. nr.: 919 910 666</h3>
+                <div @click="toggleModal(4)" class="sub-company shadow-md rounded-lg flex justify-center items-center flex-col px-4 py-6 text-s bg-white hover:cursor-pointer">
+                    <h3 class="font-bold">Malerfirma Engvold & Sønn AS</h3>
+                    <h3>Eierandel: 100%</h3>
+                    <h3>Org. nr.: 983 033 601</h3>
                 </div>
                 <div @click="toggleModal(5)" class="sub-company shadow-md rounded-lg flex justify-center items-center flex-col px-4 py-6 text-s bg-white hover:cursor-pointer">
                     <h3 class="font-bold">Strandgata 16 B AS</h3>
                     <h3>Eierandel: 100%</h3>
                     <h3>Org. nr.: 921 372 426</h3>
+                </div>
+                <div @click="toggleModal(1)" class="sub-company shadow-md rounded-lg flex justify-center items-center flex-col px-4 py-6 text-s bg-white hover:cursor-pointer">
+                    <h3 class="font-bold">Slottsfjell Invest AS</h3>
+                    <h3>Eierandel: 100%</h3>
+                    <h3>Org. nr.: 919 745 606</h3>
                 </div>
                 <div @click="toggleModal(6)" class="sub-company shadow-md rounded-lg flex justify-center items-center flex-col px-4 py-6 text-s bg-white hover:cursor-pointer">
                     <h3 class="font-bold">Frier Eiendom AS</h3>
@@ -59,11 +64,6 @@
                     <h3>Eierandel: 20%</h3>
                     <h3>Org. nr.: 925 544 795</h3>
                 </div>
-                <div @click="toggleModal(4)" class="sub-company shadow-md rounded-lg flex justify-center items-center flex-col px-4 py-6 text-s bg-white hover:cursor-pointer">
-                    <h3 class="font-bold">Malerfirma Engvold & Sønn AS</h3>
-                    <h3>Eierandel: 100%</h3>
-                    <h3>Org. nr.: 983 033 601</h3>
-                </div>
             </div>
         </section>
         
@@ -73,20 +73,23 @@
             <h3 class="font-bold text-2xl">Kontaktinformasjon</h3>
             <p>Org nr.: 919 745 606</p>
             <p>Besøksadr/post: Strandgata 16B, 3960, Stathelle</p>
-            <p>Telefon: +47 919 99 620</p>
+            <p>Telefon: +47 919 96 620</p>
             <p>E-post: post@frierhrt.no</p>
             <p>Web: www.frierhrt.no</p>
         </div>
     </footer>
     <div @click="toggleModal(0)" :class="{hidden: !showModal}" class="modal flex justify-center items-center fixed top-0 left-0 bg-neutral-900/75 h-screen w-full z-1">
-        <div class="model-content text-slate-50 bg-white h-2/3 px-8 relative bg-gradient-to-r from-neutral-900 to-neutral-800 flex justify-center items-center flex-col">
+        <div class="model-content text-slate-50 bg-white h-full md:h-2/3 px-8 relative bg-gradient-to-r from-neutral-900 to-neutral-800 flex justify-center items-center flex-col">
             <h3 class="text-xl">{{ companies[company].name }}</h3>
             <h3 class="text-md mb-2">Organiasjonsnr.: {{ companies[company].org_number }}</h3>
             <h3 class="text-lg mb-2">{{ companies[company].about }}</h3>
             <h3 class="">Telefon: {{ companies[company].phone }}</h3>
             <h3 class="">E-post: {{ companies[company].email }}</h3>
             <h3 class="">Adresse: {{ companies[company].address }}</h3>
-            <h3 class="">URL: {{ companies[company].web }}</h3>
+            <h3 v-if="companies[company].web">URL: <a class="hover:bg-neutral-900 text-slate-50" target="_blank" :href="companies[company].web">{{ companies[company].web }}</a></h3>
+            <div v-if="companies[company].img" class="h-96 w-full mt-4">
+                <img :src="companies[company].img" class="w-full h-full object-fit" />
+            </div>
         </div>
     </div>
 </div>
@@ -107,28 +110,27 @@ data() {
         {
             name: 'Frier HRT AS',
             org_number: '919745606',
-            phone: '+ 47 91 99 96 20 00',
+            phone: '+ 47 919 99 620',
             email: 'post@frierhrt.no',
-            web: 'www.frierhrt.no',
+            web: 'https://www.frierhrt.no',
             address: 'Strandgata 16 B 3960 Stathelle',
             about: 'Holding selskap'
 
         },{
             name: 'Slottsfjellet Invest AS',
             org_number: '918721231',
-            phone: '+ 47 91 99 96 20 00',
+            phone: '+ 47 919 99 620',
             email: 'post@slottfjellinvest.no',
             address: 'Strandgata  16 B 3960 Stathelle',
             about: 'Slottsfjell Invest AS er et selskap som investerer i verdipapirer og fond.',
-            web: 'Ingen'
         }, {
             name: 'Frier Byggservice AS',
             org_number: '919710666',
-            phone: '+ 47 33 11 20 00 / + 47 90 47 56 80',
+            phone: '+ 47 33 11 20 00 / + 47 904 75 680',
             email: 'post@fbsas.no',
             address: 'Strandgata 16 B 3960 Stathelle',
             about: 'Frier Byggservice AS er en total entreprenør.',
-            web: 'www.fbsas.no'
+            web: 'https://www.fbsas.no'
         }, {
             name: 'Frier Byggservice AB',
             org_number: '559294-6338',
@@ -136,7 +138,7 @@ data() {
             email: 'post@fbsas.no',
             address: 'Kilengatan 4  45233 Strømstad',
             about: 'Frier Byggservice AB er vårt svenske entreprenørselskap.',
-            web: 'www.fbsas.no'
+            web: 'https://www.fbsas.no'
         }, {
             name: 'Malerfirma Engvold & Sønn AS',
             org_number: '983033601',
@@ -144,31 +146,29 @@ data() {
             email: 'firmapost@mfes.no',
             address: 'Strandgata 16 B  3960 Stathelle',
             about: 'Malerfirma Engvold & Sønn AS er et etablert malerfirma.',
-            web: 'www.mfes.no'
+            web: 'https://www.mfes.no'
         }, {
             name: 'Strandgata 16 B AS',
             org_number: '921372426',
-            phone: '+ 47 91 99 96 20 00',
+            phone: '+ 47 919 99 620',
             email: 'post@strandgata16.no',
             address: 'Strandgata 16 B  3960 Stathelle',
             about: 'Strandgata 16 B AS er vårt eiendomsselskap hvor vi har kontorer.',
-            web: 'Ingen'
+            img: '/img/strandgata-16.jpeg'
         }, {
             name: 'Frier Eiendom AS',
             org_number: '921683596',
-            phone: '+ 47 91 99 96 20 00',
+            phone: '+ 47 919 99 620',
             email: 'post@friereiendom.no',
             address: 'Strandgata 16 B  3960 Stathelle',
             about: 'Frier Eiendom AS er et eiendomsselskap hvor vi eier 25 %',
-            web: 'Ingen'
         }, {
             name: 'Br: Greipsland AS',
             org_number: '925544795',
-            phone: '+ 47 48 15 55 54',
+            phone: '+ 47 481 55 554',
             email: 'post@brgreipsland.no',
             address: 'Gamleveien 26 4520 Lindesnes',
             about: 'Br. Greipsland er et håndverkfirma hvor vi eier 20 %',
-            web: 'Ingen'
         }
     ],
     company: 0
